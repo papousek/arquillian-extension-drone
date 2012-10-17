@@ -17,14 +17,7 @@
 package org.jboss.arquillian.drone.webdriver.configuration;
 
 /**
- * Generic configuration for WebDriver Driver. By default, it uses HtmlUnit Driver.
- *
- * @author <a href="kpiwko@redhat.com>Karel Piwko</a>
- *
+ * @author <a href="mailto:jpapouse@redhat.com">Jan Papousek</a>
  */
-public interface WebDriverConfiguration extends AndroidDriverConfiguration, ChromeDriverConfiguration,
-        FirefoxDriverConfiguration, HtmlUnitDriverConfiguration, InternetExplorerDriverConfiguration,
-        IPhoneDriverConfiguration, OperaDriverConfiguration, RemoteWebDriverConfiguration,
-        RemoteReusableWebDriverConfiguration, PhantomJSDriverConfiguration {
-
+public interface PhantomJSDriverConfiguration extends CommonWebDriverConfiguration {
 }

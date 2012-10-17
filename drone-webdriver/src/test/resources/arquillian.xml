@@ -8,7 +8,7 @@
 
     <container qualifier="jboss" default="true">
         <configuration>
-            <property name="jbossHome">${jbossHome}</property>
+            <property name="jbossHome">/opt/jboss-as-7.1.1.Final/</property>
         </configuration>
     </container>
 
@@ -19,6 +19,7 @@
         <property name="browserCapabilities">chrome</property>
         <property name="chrome.binary">/opt/google/chrome/chrome</property>
         <property name="chromeDriverBinary">/opt/google/chrome/chromedriver</property>
+        <property name="phantomjs.binary">target/phantomjs</property>
     </extension>
 
     <!-- Set a different remote address then default for RemoteReusableTesting -->

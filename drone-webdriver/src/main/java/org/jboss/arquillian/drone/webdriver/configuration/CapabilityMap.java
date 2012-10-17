@@ -196,6 +196,27 @@ enum CapabilityMap {
             return RemoteReusableWebDriverConfiguration.class;
         }
 
+    },
+    PHANTOM {
+        @Override
+        public String getReadableName() {
+            return null;
+        }
+
+        @Override
+        public String getImplementationClass() {
+            return "eu.fryc.ghostdriver.PhantomJSDriver";
+        }
+
+        @Override
+        public DesiredCapabilities getCapabilities() {
+            return null;
+        }
+
+        @Override
+        public Class<? extends WebDriverConfigurationType> getWebDriverConfigurationType() {
+            return PhantomJSDriverConfiguration.class;
+        }
     };
 
     /**

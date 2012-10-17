@@ -16,6 +16,7 @@
  */
 package org.jboss.arquillian.drone.webdriver.configuration;
 
+import java.io.File;
 import java.lang.annotation.Annotation;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -48,7 +49,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class TypedWebDriverConfiguration<T extends WebDriverConfigurationType> implements
         DroneConfiguration<TypedWebDriverConfiguration<T>>, AndroidDriverConfiguration, ChromeDriverConfiguration,
         FirefoxDriverConfiguration, HtmlUnitDriverConfiguration, InternetExplorerDriverConfiguration,
-        IPhoneDriverConfiguration, WebDriverConfiguration, RemoteReusableWebDriverConfiguration {
+        IPhoneDriverConfiguration, WebDriverConfiguration, RemoteReusableWebDriverConfiguration, PhantomJSDriverConfiguration {
+
 
     private abstract class CallInterceptor<R> {
         private Boolean exists = null;

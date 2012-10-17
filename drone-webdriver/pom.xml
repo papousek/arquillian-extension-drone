@@ -88,6 +88,11 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>eu.fryc</groupId>
+            <artifactId>ghostdriver-java</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-htmlunit-driver</artifactId>
             <version>${version.selenium}</version>
