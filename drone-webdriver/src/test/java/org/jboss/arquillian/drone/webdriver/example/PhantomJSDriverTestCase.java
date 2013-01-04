@@ -14,17 +14,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.arquillian.drone.webdriver.configuration;
+package org.jboss.arquillian.drone.webdriver.example;
+
+import org.jboss.arquillian.drone.api.annotation.Drone;
+import org.jboss.arquillian.junit.Arquillian;
+import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 /**
- * Generic configuration for WebDriver Driver. By default, it uses HtmlUnit Driver.
- *
- * @author <a href="kpiwko@redhat.com>Karel Piwko</a>
- *
+ * @author <a href="mailto:jpapouse@redhat.com">Jan Papousek</a>
  */
-public interface WebDriverConfiguration extends AndroidDriverConfiguration, ChromeDriverConfiguration,
-        FirefoxDriverConfiguration, HtmlUnitDriverConfiguration, InternetExplorerDriverConfiguration,
-        IPhoneDriverConfiguration, OperaDriverConfiguration, RemoteWebDriverConfiguration,
-        RemoteReusableWebDriverConfiguration, PhantomJSDriverConfiguration {
+@RunWith(Arquillian.class)
+public class PhantomJSDriverTestCase extends  AbstractWebDriver {
+
+    @Drone
+    PhantomJSDriver driver;
+
+    @Override
+    protected WebDriver driver() {
+        return driver;
+    }
 
 }

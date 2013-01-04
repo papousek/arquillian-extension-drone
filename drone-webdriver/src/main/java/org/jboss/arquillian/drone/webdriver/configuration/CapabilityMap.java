@@ -174,6 +174,28 @@ enum CapabilityMap {
         }
 
     },
+    PHANTOMJS {
+
+        @Override
+        public String getImplementationClass() {
+            return "org.openqa.selenium.phantomjs.PhantomJSDriver";
+        }
+
+        @Override
+        public DesiredCapabilities getCapabilities() {
+            return DesiredCapabilities.phantomjs();
+        }
+
+        @Override
+        public String getReadableName() {
+            return "phantomjs";
+        }
+
+        @Override
+        public Class<? extends WebDriverConfigurationType> getWebDriverConfigurationType() {
+            return PhantomJSDriverConfiguration.class;
+        }
+    },
     REMOTE {
 
         @Override

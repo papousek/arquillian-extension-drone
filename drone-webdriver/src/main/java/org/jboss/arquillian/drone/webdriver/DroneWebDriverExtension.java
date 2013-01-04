@@ -27,11 +27,13 @@ import org.jboss.arquillian.drone.webdriver.factory.HtmlUnitDriverFactory;
 import org.jboss.arquillian.drone.webdriver.factory.IPhoneDriverFactory;
 import org.jboss.arquillian.drone.webdriver.factory.InternetExplorerDriverFactory;
 import org.jboss.arquillian.drone.webdriver.factory.OperaDriverFactory;
+import org.jboss.arquillian.drone.webdriver.factory.PhantomJSDriverFactory;
 import org.jboss.arquillian.drone.webdriver.factory.RemoteWebDriverFactory;
 import org.jboss.arquillian.drone.webdriver.factory.WebDriverFactory;
 import org.jboss.arquillian.drone.webdriver.factory.remote.reusable.ReusableRemoteWebDriverExtension;
 import org.jboss.arquillian.drone.webdriver.factory.remote.reusable.ReusedSessionPernamentFileStorage;
 import org.jboss.arquillian.drone.webdriver.factory.remote.reusable.ReusedSessionPernamentStorage;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 /**
  * Arquillian Drone support for WebDriver
@@ -77,6 +79,10 @@ public class DroneWebDriverExtension implements LoadableExtension {
         builder.service(Configurator.class, RemoteWebDriverFactory.class);
         builder.service(Instantiator.class, RemoteWebDriverFactory.class);
         builder.service(Destructor.class, RemoteWebDriverFactory.class);
+
+        builder.service(Configurator.class, PhantomJSDriverFactory.class);
+        builder.service(Instantiator.class, PhantomJSDriverFactory.class);
+        builder.service(Destructor.class, PhantomJSDriverFactory.class);
 
         builder.observer(ReusableRemoteWebDriverExtension.class);
         builder.service(ReusedSessionPernamentStorage.class, ReusedSessionPernamentFileStorage.class);

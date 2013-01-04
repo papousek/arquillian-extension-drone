@@ -236,6 +236,11 @@
                 <artifactId>selenium-remote-driver</artifactId>
                 <version>${version.selenium}</version>
             </dependency>
+            <dependency>
+                <groupId>org.jboss.selenium</groupId>
+                <artifactId>selenium-phantomjs-driver</artifactId>
+                <version>${version.phantomjs.driver}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

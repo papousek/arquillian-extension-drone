@@ -48,7 +48,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class TypedWebDriverConfiguration<T extends WebDriverConfigurationType> implements
         DroneConfiguration<TypedWebDriverConfiguration<T>>, AndroidDriverConfiguration, ChromeDriverConfiguration,
         FirefoxDriverConfiguration, HtmlUnitDriverConfiguration, InternetExplorerDriverConfiguration,
-        IPhoneDriverConfiguration, WebDriverConfiguration, RemoteReusableWebDriverConfiguration {
+        IPhoneDriverConfiguration, WebDriverConfiguration, RemoteReusableWebDriverConfiguration,
+        PhantomJSDriverConfiguration {
 
     private abstract class CallInterceptor<R> {
         private Boolean exists = null;
@@ -196,6 +197,8 @@ public class TypedWebDriverConfiguration<T extends WebDriverConfigurationType> i
     protected boolean remoteReusable;
 
     protected boolean remote;
+
+    protected boolean resolvePhantomjs = true;
 
     public TypedWebDriverConfiguration(Class<T> type) {
         this.type = type;
@@ -596,6 +599,17 @@ public class TypedWebDriverConfiguration<T extends WebDriverConfigurationType> i
     }
 
     @Override
+    public boolean isResolvePhantomjs() {
+        final CallInterceptor<Boolean> interceptor = new CallInterceptor<Boolean>() {
+            @Override
+            public Boolean invoke() {
+                return TypedWebDriverConfiguration.this.resolvePhantomjs;
+            }
+        };
+        return interceptor.intercept("isResolvePhantomjs");
+    }
+
+    @Override
     @Deprecated
     public boolean isUseJavaScript() {
         final CallInterceptor<Boolean> interceptor = new CallInterceptor<Boolean>() {
@@ -973,6 +987,18 @@ public class TypedWebDriverConfiguration<T extends WebDriverConfigurationType> i
         };
         interceptor.intercept("setUserAgent", String.class);
 
+    }
+
+    @Override
+    public void setResolvePhantomjs(final boolean resolvePhantomjs) {
+        final CallInterceptor<Void> interceptor = new CallInterceptor<Void>() {
+            @Override
+            public Void invoke() {
+                TypedWebDriverConfiguration.this.resolvePhantomjs = resolvePhantomjs;
+                return null;
+            }
+        };
+        interceptor.intercept("setResolvePhantomjs", boolean.class);
     }
 
 }

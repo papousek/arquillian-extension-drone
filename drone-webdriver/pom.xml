@@ -105,6 +105,11 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.jboss.selenium</groupId>
+            <artifactId>selenium-phantomjs-driver</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>com.opera</groupId>
             <artifactId>operadriver</artifactId>
             <version>${version.com.opera}</version>
